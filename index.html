@@ -1,0 +1,216 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>test</title>
+</head>
+
+<body>
+    <script>
+        var languageArray = ["en-US", "zh", "de"]
+        var dataArray = []
+        var localData = [{
+            "type": "産後",
+            "category": "体調はどうですか",
+            "data": ["眠い", "", "", "", "", "", ""]
+        }, {
+            "type": "産後",
+            "category": "会陰の痛みはありますか",
+            "data": ["薬が欲しい", "大丈夫", "トイレに行けない", "我慢できる", "", "", ""]
+        }, {
+            "type": "産後",
+            "category": "トイレに行けていますか",
+            "data": ["OK", "", "", "", "", "", ""]
+        }, {
+            "type": "産後",
+            "category": "薬を飲みましたか",
+            "data": ["", "", "", "", "", "", ""]
+        }, {
+            "type": "産後",
+            "category": "ご飯はどのくらい食べましたか",
+            "data": ["全部", "半分", "少し", "全く食べていない", "", "", ""]
+        }];
+        var enData = [{
+            "type": "postpartum",
+            "category": "How are you feeling?",
+            "data": ["sleepy", "", "", "", "", "", ""]
+        }, {
+            "type": "postpartum",
+            "category": "Do you have perineal pain",
+            "data": ["I need medicine", "I'm fine", "I can't go to the bathroom", "I can handle it", "", "", ""]
+        }, {
+            "type": "postpartum",
+            "category": "Can you go to the bathroom?",
+            "data": ["OK", "", "", "", "", "", ""]
+        }, {
+            "type": "postpartum",
+            "category": "Did you take your medicine?",
+            "data": ["", "", "", "", "", "", ""]
+        }, {
+            "type": "postpartum",
+            "category": "How much food did you eat?",
+            "data": ["all", "half", "little", "not eaten at all", "", "", ""]
+        }];
+        var zhData = [{
+            "type": "产后",
+            "category": "你感觉怎么样？",
+            "data": ["困了", "", "", "", "", "", ""]
+        }, {
+            "type": "产后",
+            "category": "你有会阴疼痛吗",
+            "data": ["我需要药", "我很好", "我不能去洗手间", "我能应付", "", "", ""]
+        }, {
+            "type": "产后",
+            "category": "你能去一下洗手间吗？",
+            "data": ["确定", "", "", "", "", "", ""]
+        }, {
+            "type": "产后",
+            "category": "你吃药了吗？",
+            "data": ["", "", "", "", "", "", ""]
+        }, {
+            "type": "产后",
+            "category": "你吃了多少食物？",
+            "data": ["全部", "一半", "一点", "根本没吃", "", "", ""]
+        }];
+        var deData = [{
+            "type": "postpartum",
+            "category": "Wie geht es dir?",
+            "data": ["sleepy", "", "", "", "", "", ""]
+        }, {
+            "type": "postpartum",
+            "Kategorie": "Haben Sie Dammschmerzen",
+            "data": ["Ich brauche Medikamente", "Mir geht es gut", "Ich kann nicht auf die Toilette",
+                "Ich komme damit klar", "", "", ""
+            ]
+        }, {
+            "type": "postpartum",
+            "category": "Kannst du auf die Toilette gehen?",
+            "data": ["OK", "", "", "", "", "", ""]
+        }, {
+            "type": "postpartum",
+            "category": "Haben Sie Ihre Medikamente eingenommen?",
+            "Daten": ["", "", "", "", "", "", ""]
+        }, {
+            "type": "postpartum",
+            "category": "Wie viel Essen hast du gegessen?",
+            "data": ["alle", "die Hälfte", "wenig", "überhaupt nicht gegessen", "", "", ""]
+        }];
+        var html;
+        let indexLanguage;
+        window.onload = function () {
+            //getJsonp_GAS();
+            if ('speechSynthesis' in window) {
+                alert("このブラウザは音声合成に対応しています")
+            } else {
+                alert("このブラウザは音声合成に対応していません")
+            }
+            var wDef = (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0, 2);
+
+            dataArray.push(enData)
+            dataArray.push(zhData)
+            dataArray.push(deData)
+            createTable(enData);
+            langSet("en-US");
+        }
+
+        function langSet(argLang) {
+            var elm = document.getElementsByClassName("langCng");
+            for (var i = 0; i < elm.length; i++) {
+
+                if (elm[i].getAttribute("lang") == argLang) {
+                    elm[i].classList.add("selected")
+                } else {
+                    elm[i].classList.remove("selected")
+                }
+
+            }
+            indexLanguage = languageArray.indexOf(argLang);
+            createTable(dataArray[indexLanguage]);
+        }
+
+        function say(a) {
+            console.log(a);
+            const uttr = new SpeechSynthesisUtterance(a[0])
+            uttr.lang = 'ja-JP';
+            speechSynthesis.speak(uttr)
+            const uttr2 = new SpeechSynthesisUtterance(a[1])
+            uttr2.lang = languageArray[indexLanguage];
+            speechSynthesis.speak(uttr2)
+        }
+
+        function createTable(d) {
+            var len = localData.length;
+            var html = '';
+            for (var i = 0; i < len; i++) {
+                var answer = "";
+                for (var j = 0; j < 6; j++) {
+                    if (localData[i].data[j].length > 0) {
+                        answer +=
+                            `<div class="smallB" id="B${i}-${j}" ><p class="ja_text">${localData[i].data[j]}</p><p class="lan"  >${d[i].data[j]}</p></div>`
+                    }
+                }
+                html += `<div class="parent">
+                    <div class ="item _A"><p class = "buttonA" id = "A${i}">${localData[i].category}<br>${d[i].category}<p></div>
+                    <div class ="item _B">${answer}</div>
+                    </div>`;
+
+                //localData[i].category + ' ' + localData[i].data1 + '<br>';
+                document.getElementById('whole').innerHTML = html;
+
+            }
+            for (let i = 0; i < len; i++) {
+
+                let elemId = `A${i}`;
+                let elem = document.getElementById(elemId);
+                if (elem) {
+                    elem.onclick = function () {
+                        say([localData[i].category, d[i].category]);
+                    };
+                }
+
+                for (let j = 0; j < 6; j++) {
+                    let elemId = `B${i}-${j}`;
+                    let elem = document.getElementById(elemId);
+                    if (elem) {
+                        elem.onclick = function () {
+                            say([localData[i].data[j], d[i].data[j]]);
+                        };
+                    }
+
+                }
+            }
+
+        }
+        // 【main-script】 スプレッドシート内の記述をjsonデータとして読み込み html 内へ入れ込む
+        function getJsonp_GAS() {
+            $.ajax({
+                type: 'GET',
+                url: 'https://script.google.com/macros/s/AKfycbxM-lAGFlZjhAv_rRdhvYA-8F8YKDpO8Oqxi4pN3EIi68rmGevgBmP9sOVEuACA_bje/exec',
+                dataType: 'jsonp',
+                jsonpCallback: 'jsondata',
+                success: function (json) {
+                    var len = localData.length;
+                    var html = '';
+                    for (var i = 0; i < len; i++) {
+                        html += localData[i].category + ' ' + json[i].data1 + '<br>';
+                    }
+                    document.getElementById('whole').append(html);
+                }
+            });
+        }
+    </script>
+    <div id="sample1">
+        <span class="langCng en selected" lang="en-US" onClick="langSet('en-US')">英語/English</span>
+        <span class="langCng zh" lang="zh" onClick="langSet('zh')">中国語/中文</span>
+        <span class="langCng de" lang="de" onClick="langSet('de')">ドイツ語/Deutsch</span>
+
+    </div>
+    <div id="whole">
+    </div>
+</body>
+
+</html>
