@@ -3,6 +3,9 @@ div{
     font-size: small;
 
 }
+.tlans{
+    transform: scale(-1, -1);
+}
 .parent{
     display: flex;
 
