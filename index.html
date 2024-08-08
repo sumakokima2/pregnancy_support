@@ -150,11 +150,11 @@
                 for (var j = 0; j < 6; j++) {
                     if (localData[i].data[j].length > 0) {
                         answer +=
-                            `<div class="smallB" id="B${i}-${j}" ><p class="ja_text">${localData[i].data[j]}</p><p class="lan"  >${d[i].data[j]}</p></div>`
+                            `<div class="smallB" id="B${i}-${j}" ><p class="ja_text tlans">${localData[i].data[j]}</p><p class="lan"  >${d[i].data[j]}</p></div>`
                     }
                 }
                 html += `<div class="parent">
-                    <div class ="item _A"><p class = "buttonA" id = "A${i}">${localData[i].category}<br>${d[i].category}<p></div>
+                    <div class ="item _A"><p class = "buttonA" id = "A${i}"><span class="tlans">${localData[i].category}</span><br>${d[i].category}<p></div>
                     <div class ="item _B">${answer}</div>
                     </div>`;
 
