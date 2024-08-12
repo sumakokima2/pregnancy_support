@@ -18,9 +18,13 @@ div{
 }
 .tlans{
     transform: scale(-1, -1);
+    margin: 5px 0 0;
+    background-color: #feedf5;
+    border-radius: 5px;
 }
 .parent{
     display: flex;
+    margin-top: 4px;
 
   }
   
@@ -47,11 +51,11 @@ div{
   }
 
   .buttonA{
-    color: #fff;
+    color: #332000;
     height:80%;
     width: 100px;
-    background-color: #eb6100;
-    border-bottom: 5px solid #b84c00;
+    background-color: #f9cae1;
+    border-bottom: 5px solid #e29ebf;
     margin-top: 3px;
     padding: 5px;
     border-radius:5px;
@@ -60,7 +64,7 @@ div{
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   }
   .buttonA:hover{
-    background-color: #b84c00;
+    background-color: #e29ebf;
   }
   .buttonA:active{
     background-color: #f72b2b;
@@ -71,7 +75,7 @@ div{
     height:60%;
     width: 100px;
     background-color: #fff;
-    border-bottom: 5px solid #b84c00;
+    border-bottom: 5px solid #f2b2d1;
     padding: 5px;
     text-align: center;
     margin: 10px;
@@ -81,15 +85,20 @@ div{
   }
   .smallB:hover{
     color: #fff;
-    background-color: #b84c00;
+    background-color: #f2b2d1;
   }
+
+  .smallB:hover .ja_text {
+    color: #332000; /* 変更したい色を指定 */
+}
+
   .smallB:active{
     color: #fff;
     background-color: #f72b2b;
   }
 
   .parent:nth-child(2n){
-    background-color: beige;
+    background-color: rgb(254, 237, 246);
   }
 
   .ja_text{
