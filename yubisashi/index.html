@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sugar Tracker</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+    <style>
+        .selected {
+            background-color: #ffe6e6 !important;
+            /* 薄ピンク */
+        }
+
+        .selected1 {
+            background-color: #90c9e48a !important;
+            /* 薄ピンク */
+        }
+
+        .clickable {
+            margin-top: 22px;
+            border: 2px solid #a2e4908a;
+            border-radius: 14px;
+            margin: 20px 0;
+        }
+
+        .clickable1 {
+            margin-top: 22px;
+            border: 2px solid #a2e4908a;
+            border-radius: 14px;
+            margin: 20px 0;
+        }
+
+        .ja {
+            display: inline-block;
+            transform: rotate(180deg);
+        }
+
+        .g-col-4 {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>言語の選択</h2>
+        <div class="d-grid gap-2 col-6 mx-auto">
+
+            <button type="button" class="btn btn-primary language-btn" data-url="./questionnaire/english">Please
+                choose the language you can understand.</button>
+
+            <button type="button" class="btn btn-primary language-btn"
+                data-url="./questionnaire/chinese">请选您能理解的语言。</button>
+
+            <button type="button" class="btn btn-primary language-btn" data-url="./questionnaire/korean">이해
+                가능한 언어를 선택해 주십시오.</button>
+
+            <button type="button" class="btn btn-primary language-btn" data-url="./questionnaire/russian">Выберите язык,
+                который для Вас удобен.</button>
+
+            <button type="button" class="btn btn-primary language-btn" data-url="./questionnaire/portuguese">Escolha o
+                idioma de sua compreensão.</button>
+
+            <button type="button" class="btn btn-primary language-btn" data-url="./questionnaire/filipino">Piliin lamang
+                ang wikang inyong naiintindihan.</button>
+
+
+            <button type="button" class="btn btn-primary language-btn"
+                data-url="./questionnaire/indonesian">Tolong/Mohon pilih bahasa yang Anda mengerti.</button>
+
+            <button type="button" class="btn btn-primary language-btn" data-url="./questionnaire/japanese">あなたが
+                理解 りかいできる ことば を 選 えら んで ください。</button>
+
+        </div>
+    </div>
+    <div class="container">
+        <h2 id="#reseption_en">
+            <p class="ja">受付</p>/ Resption
+        </h2>
+
+        <div class="clickable">
+            <p class="ja">初めてですか？</p>
+            <p class="lan">It it first time?<br>
+            </p>
+
+        </div>
+        <div class="col-md-3">
+            <input type="checkbox" id="reception"> <label for="reception">
+                <p class="ja">はい</p> / Yes
+            </label>
+        </div>
+        <div class="col-md-3">
+            <input type="checkbox" id="waiting-room"> <label for="waiting-room">
+                <p class="ja">いいえ</p> / No
+            </label>
+        </div>
+
+
+        <div class="clickable">
+            <p class="ja">今日きょうはどうしましたか？あてはまるところに☑をつけ
+                てください。</p>
+            <p class="lan">
+                please tell us the reasons of your visit today and check ☑ all the boxes that apply
+            </p>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <td class="clickable1">
+                    <span class="ja">生理がとまった</span><br>Absence of
+                    monthly period
+
+                </td>
+            </tr>
+            <tr>
+                <td class="clickable1"><input type="checkbox" id="nausea"> <span class="ja">吐き気</span><br>Feelings
+                    of nausea</td>
+            </tr>
+            <tr>
+                <td class="clickable1"><input type="checkbox" id="pregnancy-possible"> <span
+                        class="ja">妊娠かもしれない</span><br>Possible
+                    pregnancy➡ <span class="ja">自分で検査した</span> <input type="checkbox" id="self-check-yes"> <label
+                        for="self-check-yes">はい</label> <input type="checkbox" id="self-check-no"> <label
+                        for="self-check-no">いいえ</label><br>Taken a pregnancy test by myself - Yes / No</td>
+            </tr>
+            <tr>
+                <td class="clickable1"><input type="checkbox" id="irregular-period"> <span
+                        class="ja">生理が規則的にこない</span><br>Inconsistent period</td>
+            </tr>
+            <tr>
+                <td class="clickable1"><input type="checkbox" id="period-pain"> <span
+                        class="ja">生理のときお腹が痛い</span><br>Stomachache
+                    during your period</td>
+            </tr>
+            <tr>
+                <td class="clickable1"><input type="checkbox" id="itching"> <span class="ja">外陰部がかゆい</span><br>Itchiness
+                    near the
+                    external part of the genitalia</td>
+            </tr>
+            <tr>
+                <td class="clickable1"><input type="checkbox" id="stomach-pain"> <span class="ja">お腹が痛い</span><br>Have
+                    stomachache</td>
+            </tr>
+            <tr>
+                <td class="clickable1"><input type="checkbox" id="ask-about-pregnancy"> <span
+                        class="ja">不妊について聞きたい</span><br>Want to
+                    ask about infertility</td>
+            </tr>
+            <tr>
+                <td class="clickable1"><input type="checkbox" id="other"> <span
+                        class="ja">その他(　　　　　　　　　　)</span><br>Others
+                    (　　　　　　　　　　)</td>
+            </tr>
+        </table>
+
+
+        <div class="clickable">
+            <p class="ja">待合室で問診票をご記入ください。</p>
+            <p class="lan">
+                Please fill out the medical questionnaire in the waiting room</p>
+        </div>
+        <div class="clickable">
+            <p class="ja">問診票の記入が終わったら持ってきてください。</p>
+            <p class="lan">
+                When you have finished filling out the medical questionnaire, please bring it with you.</p>
+        </div>
+        <div class="section1 text-center">
+            <button type="button" class="btn btn-success" id="questionnaire">
+                <p class="ja">問診票</p>
+                <p class="lan">medical questionnaire</p>
+            </button>
+        </div>
+
+        <div class="clickable">
+            <p class="ja"> 診察まで、体重、血圧、おしっこをとってください。その後、次の場所で待っていてください。</p>
+            <p class="lan">Please take your weight, blood pressure, and urine. Atert that, please wait in the following
+                area until you are called for your examination.<br>
+            </p>
+
+        </div>
+
+        <div class="row">
+            <div class="clickable">
+                <p class="ja"> 診察まで、次の場所でお待ちください。</p>
+                <p class="lan">Please wait in the following area until you are called for your examination.<br>
+                </p>
+
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="reception"> <label for="reception">
+                    <p class="ja">受付</p> / Reception
+                </label>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="waiting-room"> <label for="waiting-room">
+                    <p class="ja">待合室</p> / Waiting room
+                </label>
+            </div>
+            <div class="col-md-3">
+                <input type="checkbox" id="consultation-room"> <label for="consultation-room">
+                    <p class="ja">診察室</p> / Consultation
+                    room
+                </label>
+            </div>
+            <!-- Add other checkboxes similarly as above -->
+        </div>
+
+        <div class="clickable">
+            <p class="ja">どこへ行けば良いか、職員がお知らせします。</p>
+            <p class="lan">A member of the staff will inform you where you should go.</p>
+        </div>
+
+        <div class="clickable">
+            <p class="ja">名前（名前 / 番号）が早い方からお呼びします。</p>
+            <p class="ja">*状況により順番が前後する場合があります。</p>
+
+            <p class="lan">Your (name / number) will be called in a first-come, first-serve basis.</p>
+            <p class="lan">*Depending on the circumstances, there are cases the order may be changed.</p>
+        </div>
+
+        <div class="clickable">
+            <p class="ja">*状況により順番が前後する場合があります。</p>
+            <p class="ja">__時から__時のあいだにお呼びする予定です。</p>
+
+            <p class="lan">We expect to call you between <span class="font-weight-bold">________</span> and <span
+                    class="font-weight-bold">________</span>.</p>
+            <p class="lan">*Depending on the circumstances, there are cases where the order may be changed.</p>
+        </div>
+
+
+
+        <div class="clickable">
+            <p class="ja">診察券をお渡しします。次から受付に出してください。</p>
+            <p class="lan">We will give you a patient ID card.</p>
+        </div>
+
+        <hr class="my-4">
+
+
+        <h2 id="#reseption_en">
+            <p class="ja">薬</p>/ medicines
+        </h2>
+
+        <div class="clickable">
+            <p class="ja">薬は診察後に、この病院内でお渡しします。</p>
+            <p class="lan">We will give you your medicines in this hospital after your examination.</p>
+        </div>
+
+        <div class="clickable">
+            <p class="ja">薬はここでは渡せません。処方箋を渡しますので薬は技外の薬局で買ってください。</p>
+            <p class="lan">We cannot provide you with medicines here. We will give you a prescription and you can
+                buy the medicines in a pharmacy outside the hospital.</p>
+        </div>
+
+        <div class="clickable">
+            <p class="ja">その場合、処方箋の有効期限は発行日から4日間です。</p>
+            <p class="lan">In this case, the validity of the prescription is 4 days from the issued date.</p>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="clickable">
+            <p class="ja">会計は自動精算機で行なってください。</p>
+
+            <p class="lan">Please pay your bill at the automated accounting machine.</p>
+        </div>
+
+        <div class="clickable">
+            <p class="ja">会計は会計窓口で行なってください。</p>
+            <p class="lan">Please pay your bill at the cashier counter.</p>
+        </div>
+
+    </div>
+
+
+    <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist"
+        style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab"
+                aria-selected="true">Home</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab"
+                aria-selected="false">Profile</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab"
+                aria-selected="false">Contact</button>
+        </li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        // クリックイベントを設定
+        document.querySelectorAll('.clickable').forEach(function (element) {
+            element.addEventListener('click', function () {
+                element.classList.toggle('selected'); // 背景色の切り替え
+            });
+        });
+
+        document.querySelectorAll('.clickable1').forEach(function (element) {
+            element.addEventListener('click', function () {
+                element.classList.toggle('selected1'); // 背景色の切り替え
+            });
+        });
+
+        document.querySelectorAll('.language-btn').forEach(function (button) {
+            button.addEventListener('click', function () {
+                const url = button.getAttribute('data-url');
+                document.getElementById('questionnaire').setAttribute('data-url', url);
+            });
+        });
+
+        // questionnaireボタンがクリックされたときに設定されたリンクに飛ぶ
+        document.getElementById('questionnaire').addEventListener('click', function () {
+            const url = this.getAttribute('data-url') + ".pdf";
+            console.log(url)
+            if (url) {
+                window.open(url, '_blank');
+            } else {
+                alert("Please select a language first.");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
